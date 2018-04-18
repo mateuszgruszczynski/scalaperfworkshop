@@ -108,8 +108,8 @@ object Warunkowe extends App{
   jakiToTyp(new C1)
   jakiToTyp(new Jednoslad("", ""))
 
-  // Chcąc matchować po wielu wartościach można zebrać je w trait
-  // z następnie ten trait rozłożyć z powrotem
+  // Chcąc matchować po wielu wartościach można zebrać je w tuple
+  // z następnie ten tuple rozłożyć z powrotem
   def dodaj2zmienne(a: Any, b: Any) = {
     (a, b) match {
       case (a:Int, b:Int) => a + b
