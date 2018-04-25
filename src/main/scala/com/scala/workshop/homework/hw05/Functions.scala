@@ -6,34 +6,21 @@ case class Point2D(x: Int, y: Int)
 
 object Functions {
 
-  val maxSumProd: (Int, Int, Int) => String = (a , b, c) => {
-    a+b+c > a*b*c match {
-      case true => "sum"
-      case false => "product"
-    }
-  }
+  val maxSumProd: (Int, Int, Int) => String = ??? // TODO: dokończ
 
-  val sumOfDigits: Int => Int = x => {
-    x.toString.map(c => c.toString.toInt).sum
-  }
+  val sumOfDigits: Int => Int = ??? // TODO: dokończ
 
-  val distance2D: (Point2D,Point2D) => Double = (p1, p2) => {
-    math.sqrt((p1.x-p2.x)*(p1.x-p2.x) + (p1.y-p2.y)*(p1.y-p2.y))
-  }
+  val distance2D: (Point2D,Point2D) => Double = ??? // TODO: dokończ
 
-  val filterOddOnly: List[Int] => List[Int] = l => l.filter(l => l % 2 == 1)
+  val filterOddOnly: List[Int] => List[Int] = ??? // TODO: dokończ
 
-  val expList: List[Int] => List[Int] = l => l.map(v => v * v)
+  val expList: List[Int] => List[Int] = ??? // TODO: dokończ
 
-  val expOfOddOnly: List[Int] => List[Int] = filterOddOnly.andThen(expList)
+  val expOfOddOnly: List[Int] => List[Int] = ??? // TODO: dokończ
 
-  def areEqualFor(input: Int, f1: Int => Int, f2: Int => Int) = {
-    f1.apply(input) == f2.apply(input)
-  }
+  def areEqualFor(/* uzupełnij */) = ??? // TODO: dokończ
 
-  def applyAll(input: Int, fs: (Int => Int) *) = {
-    fs.foldLeft(input)((in, f) => f.apply(in))
-  }
+  def applyAll(/* uzupełnij */) = ??? // TODO: dokończ
 
 }
 
@@ -109,42 +96,43 @@ class FunctinsTest extends FlatSpec with Matchers {
 
   behavior of "areEqualFor"
 
-  it should "return true for equal results" in {
-    Functions.areEqualFor(
-      5,
-      x => x * 5,
-      x => x + 20
-    ) shouldBe true
-  }
-
-  it should "return false for not equal results" in {
-    Functions.areEqualFor(
-      5,
-      x => x * 5,
-      x => x * 6
-    ) shouldBe false
-  }
-
-  behavior of "applyAll"
-
-  it should "return input value for zero functions" in {
-    Functions.applyAll(10) shouldBe 10
-  }
-
-  it should "return proper value for single functions" in {
-    Functions.applyAll(
-      10,
-      x => x + 5
-    ) shouldBe 15
-  }
-
-  it should "return proper value for multiple functions" in {
-    Functions.applyAll(
-      10,
-      x => x + 2,
-      x => x * 2,
-      x => x - 10
-    ) shouldBe 14
-  }
+// TODO: Odkomentuj testy
+//  it should "return true for equal results" in {
+//    Functions.areEqualFor(
+//      5,
+//      x => x * 5,
+//      x => x + 20
+//    ) shouldBe true
+//  }
+//
+//  it should "return false for not equal results" in {
+//    Functions.areEqualFor(
+//      5,
+//      x => x * 5,
+//      x => x * 6
+//    ) shouldBe false
+//  }
+//
+//  behavior of "applyAll"
+//
+//  it should "return input value for zero functions" in {
+//    Functions.applyAll(10) shouldBe 10
+//  }
+//
+//  it should "return proper value for single functions" in {
+//    Functions.applyAll(
+//      10,
+//      x => x + 5
+//    ) shouldBe 15
+//  }
+//
+//  it should "return proper value for multiple functions" in {
+//    Functions.applyAll(
+//      10,
+//      x => x + 2,
+//      x => x * 2,
+//      x => x - 10
+//    ) shouldBe 14
+//  }
 
 }

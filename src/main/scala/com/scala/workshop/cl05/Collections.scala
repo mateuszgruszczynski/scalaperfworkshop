@@ -8,9 +8,9 @@ object Collections extends App{
 
   val s2 = Set(4, 5, 6, 7, 8, 9)
 
-  //println(s1 ++ s2)
+  println(s1 ++ s2)
 
-  //println(s1 + 4)
+  println(s1 + 4)
 
   s1 -- s2
 
@@ -22,15 +22,15 @@ object Collections extends App{
 
   val sek2 = Seq(1, 2, 3, 4)
 
-  //println(sek1 ++ sek2)
+  println(sek1 ++ sek2)
 
-  //println(sek1 ++: sek2)
+  println(sek1 ++: sek2)
 
   val list1 = 1 :: 2 :: Nil
 
-  //println(list1 :+ 3)
+  println(list1 :+ 3)
 
-  //println(3 +: list1)
+  println(3 +: list1)
 
   val emptyList = Nil
 
@@ -40,31 +40,31 @@ object Collections extends App{
 
   val head :: tail = intList
 
-  //println(head)
-  //println(tail)
+  println(head)
+  println(tail)
 
   val first :: second :: third :: fourth :: rest = intList
 
   val randomInts: List[Int] = List.fill(100){Random.nextInt(10000)}
 
-  //println(randomInts)
+  println(randomInts)
 
   val intsList = List.tabulate(100)(i => 2*i*i)
 
-  //println(intsList)
+  println(intsList)
 
-  //println(intsList.filter(i => i % 100 == 0))
-  //println(intsList.filterNot(i => i % 100 == 0))
+  println(intsList.filter(i => i % 100 == 0))
+  println(intsList.filterNot(i => i % 100 == 0))
 
-  //println(intsList.find(i => i % 9999 == 0 && i > 0))
+  println(intsList.find(i => i % 9999 == 0 && i > 0))
 
-  //println(intsList.exists(i => i % 9999 == 0 && i > 0))
+  println(intsList.exists(i => i % 9999 == 0 && i > 0))
 
   val l = List(32432, 343, 232, 22, 2, 6, 112, 445, 3233)
 
-  //println(l.sorted)
+  println(l.sorted)
 
-  //println(l.sorted.reverse)
+  println(l.sorted.reverse)
 
   val l2 = List("aaa", "a", "aaaaaa", "aa")
 
@@ -102,11 +102,11 @@ object Collections extends App{
 
   //println(l02.zipWithIndex)
 
-//  l01.foreach(i => {
-//    println(s"Element listy l01: $i")
-//  })
-//
-//  println(l01.map(i => i*i*i))
+  l01.foreach(i => {
+    println(s"Element listy l01: $i")
+  })
+
+  println(l01.map(i => i*i*i))
 
   val lll = List(2, 5, 11)
 

@@ -3,7 +3,7 @@ package com.scala.workshop
 import scala.collection.mutable
 import scala.util.Random
 
-object Kolekcje extends App{
+object Kolekcje_Z_Komantarzem extends App{
 
   // Dwa typy kolekcji - mutable i immutable
   // Do mutable można dodawać i odejmować elementy
@@ -35,7 +35,7 @@ object Kolekcje extends App{
 
   println(set3)
 
-  // Dodawanie duplikatu do setu nie spowoduje duplikatu
+  // Dodawanie duplikatu do setu nie spowoduje zduplikowania wartości
 
   val set4 = set3 + "d"
 
@@ -65,6 +65,10 @@ object Kolekcje extends App{
 
   val emptyList = List.empty
 
+  // lub
+
+  val emptyList2 = Nil
+
   // z użyciem podobnej notacji mozna łączyć listy
 
   val lista4 = lista2 ::: lista3
@@ -85,8 +89,8 @@ object Kolekcje extends App{
 
   val head :: tail = lista7
 
-  println(head)
-  println(tail)
+  println(head) // <--- pierwszy element listy
+  println(tail) // <--- pozostała część listy
 
   // czy też rozłożyć ją na więcej fragmentów
 
@@ -123,52 +127,54 @@ object Kolekcje extends App{
 
   // "edytowanie"
 
-  lista1.distinct
+  lista1.distinct // <- zwraca listę pomijaąc powtórzenia
 
-  lista1.drop(10)
+  lista1.drop(10) // <- zwraca listę bez 10 pierwszych elementów
 
-  lista1.dropWhile(s => s.length >= 2)
+  lista1.dropWhile(s => s.length >= 2) // <- pomija pierwsze elementy listy tak długo aż trafi na taki który jest mniejszy niż 2
 
   // łączyć z innymi listami w listy tupli
 
-  val zippedList = lista1.zip(lista2)
+  val zippedList = lista1.zip(lista2) // <- tworzy listę tupli dla tych indexów które występują w obu listach
 
-  val zippedAllList =  lista1.zipAll(lista2, "missing", "missing")
+  val zippedAllList =  lista1.zipAll(lista2, "missing1", "missing2") // <- tworzy listę tupli dla wszystkich elementów, jeśli któraś lista jest krótsza dopełnia ją wartościami z parametrów
 
-  val zipIndexList = lista1.zipWithIndex
+  val zipIndexList = lista1.zipWithIndex // <- łączy listę z listą indexów (0 - n gdzie n to długość listy)
 
   // iterowanie
 
-  lista1.foreach(s => println(s.length))
+  lista1.foreach(s => println(s.length)) // <- wykonuje lambdę na każdym elemencie listy, nic nie zwraca
 
-  lista1.map(s => s.length)
+  lista1.map(s => s.length) // <- wykonuje lambdę na każdym elemencie listy, zwraca listę wyników
+
+  // redukowanie
 
   val intList = List(2, 5, 11)
 
-  println(intList.fold(1){
+  println(intList.fold(1){ // <- redukuje listę do pojedynczej wartości używając przekazanej lambdy (patrz zdjęcie z tablicy)
     (a,b) => a - b
   })
 
-  println(intList.foldLeft(1){
+  println(intList.foldLeft(1){ // <- nowsza implementacja folda
     (a,b) => a - b
   })
 
-  println(intList.foldRight(1){
+  println(intList.foldRight(1){ // <- odwrotna implementacja foldLeft (patrz zdjęcie)
     (a,b) => a - b
   })
+
+  // scan działa dokładnie jak fold, z tym, że zwraca nie jedną wartość a listę z wynikami każdego kolejnego przejścia
 
   println(intList.scanLeft(1)(_ - _))
   println(intList.scanRight(1)(_ - _))
 
-  // redukowanie
+  println(List(1, 2, 3, 4).product) // <- zwraca iloczyn wartości w tablicy
 
-  println(List(1, 2, 3, 4).product)
+  println(List(1, 2, 3, 4).sum) // <- zwraca sumę wartości w tablicy
 
-  println(List(1, 2, 3, 4).sum)
+  println(List(1, 2, 3, 4).reduce((x,y) => x + y)) // redukuje listę do pojedynczej wartości z użyciem przekzanej lambdy, zwracany typ musi równać się typowi elementów z listy
 
-  println(List(1, 2, 3, 4).reduce((x,y) => x + y))
-
-  // Listę list możemy przekształcić z użyciem flatten
+  // Listę list możemy przekształcić w listę jednopoziomową z użyciem flatten
 
   val listOfLists = List(
     List("a", "b", "c", "d"),
@@ -176,6 +182,17 @@ object Kolekcje extends App{
   )
 
   println(listOfLists.flatten)
+
+  // Do mapowania złożonych list można użyć flatMap który jest połączeniem map i flatten
+
+  val l = List(
+    List(1, 2, 3, 5),
+    List(7, 8, 9, 9)
+  )
+
+  println(l.map(l => l.map(x => x*x))) // zwykły ma zwróci listę 2 list z potęgami
+
+  println(l.flatMap(l => l.map(x => x*x))) // flatMap zwróci jedną listę z potęgami
 
   // List API posiadają również obiekt List który posiada metody do generowania list
 

@@ -1,6 +1,6 @@
 package com.scala.workshop.cl05
 
-object Functions extends App{
+object FunctionsCl extends App{
 
   val fun1: Function0[String] = () => "test"
 

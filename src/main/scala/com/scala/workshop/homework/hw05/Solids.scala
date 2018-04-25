@@ -6,11 +6,11 @@ class RegularSolid(a: Double, fv: Double => Double){
   def volume = fv.apply(a)
 }
 
-case class Tetahedron(a: Double) extends RegularSolid(a, a => a*a*a*math.sqrt(2)/12)
+case class Tetahedron(a: Double) extends RegularSolid(???, ???) // TODO: dokończ
 
-case class Cube(a: Double) extends RegularSolid(a, a => a*a*a)
+case class Cube(a: Double) extends RegularSolid(???, ???) // TODO: dokończ
 
-case class Octahedron(a: Double) extends RegularSolid(a, a => a*a*a*math.sqrt(2)/3)
+case class Octahedron(a: Double) extends RegularSolid(???, ???) // TODO: dokończ
 
 class TestSolids extends FlatSpec with Matchers {
 

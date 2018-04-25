@@ -2,7 +2,7 @@ package com.scala.workshop.cl05
 
 import scala.util.Random
 
-object Collections extends App{
+object CollectionsCl extends App{
 
   val s1: Set[Int] = Set(1, 2, 3, 4, 5, 6)
 

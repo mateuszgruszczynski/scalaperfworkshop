@@ -2,7 +2,7 @@ package com.scala.workshop
 
 import scala.util.Random
 
-object Funkcje extends App{
+object Funkcje_Z_Komantarzem extends App{
 
   // Funkcja to taki byt który przekształca jedeną wartość w drugą
 
@@ -41,6 +41,10 @@ object Funkcje extends App{
 
   println(multiplyN.apply(2, 5))
 
+  // apply możemy również wywołać używając jej skrótu czyli (), wygląda to wtedy dokłądnie tak jak wywołanie metody
+
+  println(multiplyN(2, 5))
+
   // ---------------------------------------------------------
 
   // Metody w rzeczywistości też są rzutowane do funkcji
@@ -51,6 +55,8 @@ object Funkcje extends App{
 
   println(multiply5Met(5))
   println(multiply5Fun.apply(10))
+
+  //multiply5Met.apply(7) <- na metodzie nie możemy jednak wywołać apply w sposób bezpośredni
 
   // Metodę można przekształcić w funkcję wywołując ją w ciele funkcji
   def sumAB(a: Int, b: Int) = a+b
@@ -64,6 +70,10 @@ object Funkcje extends App{
 
   println(sumABEta.apply(2, 3))
 
+  // lub bez definiowania zmiennej pomocniczej
+
+  println(sumAB _ apply(2, 3))
+
   // Funkcje można łączyć (komponować)
 
   val addB: String => String = s => s + "B"
@@ -72,13 +82,13 @@ object Funkcje extends App{
 
   // Z użyciem andThen
   // f, g => f(g(x))
-  val addBCD = addB.andThen(addC).andThen(addD)
+  val addBCD = addB.andThen(addC).andThen(addD) // ---> wykonuje funkcje w kolejności od lewej do prawej
 
   println(addBCD.apply("test"))
 
   // Lub z użyciem compose
   // f, g => g(f(x))
-  val addDBC = addB.compose(addC).compose(addD)
+  val addDBC = addB.compose(addC).compose(addD) // <--- wykonuje funkcje w kolejności od prawej do lewej
 
   println(addDBC.apply("test"))
 
@@ -90,7 +100,7 @@ object Funkcje extends App{
 
   val complexAndComplx = complex.tupled.andThen(multiply5Fun)
 
-  // Definiując funkcję mozna użyć notacli case po to by zdefiniować
+  // Definiując funkcję mozna użyć notacji case po to by zdefiniować
   // rózne zachowanie dla różnych przedziałów dziedziny funkcji
 
   val absolute: Int => Int = {
@@ -148,6 +158,10 @@ object Funkcje extends App{
   val multiplyBy20 = multiplyN(20, _: Int)
 
   println(multiplyBy20.apply(4))
+
+  // Zwróćcie uwagę, że partial function i partially applied function to nie to samo
+  // ten pierwszy  typ jest zdefiniowany dla okrojonej dziedziny
+  // ten drugi typ to funkcja która posiada częściowo zdefiniowane wartości wejściowe
 
   // Funkcje można oczywiście przekazywać jako parametr do
   // metody czy innej funkcji

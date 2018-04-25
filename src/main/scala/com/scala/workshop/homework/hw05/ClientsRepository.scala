@@ -33,41 +33,6 @@ case class Product(
   price: BigDecimal
 )
 
-object Randomizer {
-
-  private val fNames = List("Alicia", "Bill", "Clark", "David", "Eva", "Frank", "George", "Hanna", "Ian", "Jordan", "Kate", "Lucas")
-  private val sNames = List("Alberts", "Brown", "Collins", "Daniels", "Evans", "Ford", "Gates", "Hilton", "Irvin", "Jameson", "Kerby", "Lawton")
-  private val countries = List("Poland", "Germany", "France", "Sweden", "Denmark", "Spain", "Japan", "USA", "UK")
-  private val streetPrefixes = List("King", "Queen", "Old", "Spring", "Berkley", "Irwin", "Pearson", "Richmond", "Fountain", "Douglas")
-  private val streetSuffixes = List("Road", "Street", "Avenue", "Park", "Alley", "Creek", "Garden", "Highway", "Plaza", "Square")
-  private val cities = List("Cracow", "Paris", "London", "Stockholm", "Berlin", "Warsaw", "Tokio", "Leeds", "Poznan", "Madrid", "Chicago", "Austin", "Barcelona")
-  private val brands = List("Nike", "Adidas", "CK", "Zara", "Vans", "H&M", "Puma", "Wrangler", "GAP", "Reebok", "Mexx", "GStar")
-  private val productTypes = List("Shoes", "Boots", "Trousers", "Shirt", "Tshirt", "Hoodie", "Sweater", "Suit", "Jacket")
-  private val logins = List("bowie", "pluto", "rooster", "judge", "cosmo", "marbles", "gadget", "trip", "vortex", "zed", "orion", "freak", "nessie", "zero")
-  private val domains = List("gmail.com", "mail.eu", "yahoo.com", "mail.com", "mail.co.uk", "email.com", "mail.fr", "mail.jp", "mail.se", "mail.pl")
-
-  def randomFirstName = Random.shuffle(fNames).head
-
-  def randomLastName = Random.shuffle(sNames).head
-
-  def randomProductName = s"${Random.shuffle(brands).head} ${Random.shuffle(productTypes).head}"
-
-  def randomAddress = Address(
-    Random.shuffle(countries).head,
-    Random.shuffle(cities).head,
-    (Random.nextInt(89999) + 10000).toString,
-    s"${Random.shuffle(streetPrefixes).head} ${Random.shuffle(streetSuffixes).head} ${Random.nextInt(1000)}"
-  )
-
-  def randomEmail = Random.shuffle(logins).head + "@" + Random.shuffle(domains).head
-
-  def randomCategories = Random.shuffle(List("clothing", "sport wear", "sale")).head
-
-  def randomDecimal(from: BigDecimal, to: BigDecimal) = (Random.nextDouble()*(to-from) + from).setScale(2, RoundingMode.HALF_UP)
-
-}
-
-
 object ClientsRepository{
 
   val staticClients = List(

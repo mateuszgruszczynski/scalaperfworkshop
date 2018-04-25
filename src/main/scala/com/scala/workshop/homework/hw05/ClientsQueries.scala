@@ -4,43 +4,23 @@ import org.scalatest.{FlatSpec, Matchers}
 
 object ClientsQueries extends App {
 
-  def returnClientsFrom(list: List[Client], country: String): List[Client] = {
-    list.filter(c => c.address.country == country)
-  }
+  def returnClientsFrom(list: List[Client], country: String): List[Client] = ???
 
-  def clientsWithMoreThanNProducts(list: List[Client], count: Int): List[Client] = {
-    list.filter(c => c.orders.foldLeft(0){(s, o) => s + o.products.length} >= count)
-  }
+  def clientsWithMoreThanNProducts(list: List[Client], count: Int): List[Client] = ???
 
-  def usersWithOrdersToNotTheirsAddress(list: List[Client]): List[Client] = {
-    list.filter(c => c.orders.exists(o => o.deliveryAddress != c.address))
-  }
+  def usersWithOrdersToNotTheirsAddress(list: List[Client]): List[Client] = ???
 
-  def sortByNumberOfProducts(list: List[Client]): List[Client] = {
-    list.sortBy(c => c.orders.foldLeft(0){(s, o) => s + o.products.length})
-  }
+  def sortByNumberOfProducts(list: List[Client]): List[Client] = ???
 
-  def hasClientFromCountryOrderedProduct(list: List[Client], country: String, productPart: String): Boolean= {
-    list.exists(c => c.address.country == country && c.orders.exists(o => o.products.exists(p => p.name.contains(productPart))))
-  }
+  def hasClientFromCountryOrderedProduct(list: List[Client], country: String, productPart: String): Boolean = ???
 
-  def returnAllDistinctProductNames(list: List[Client]) : List[String] = {
-    list.flatMap(c => c.orders.flatMap(o => o.products.map(p => p.name)))
-  }
+  def returnAllDistinctProductNames(list: List[Client]) : List[String] = ???
 
-  def splitUsersWhoBoughtAndNotProduct(list: List[Client], productPart: String) : (List[Client], List[Client]) = {
-    list.partition(c => c.orders.exists(o => o.products.exists(p => p.name.contains(productPart))))
-  }
+  def splitUsersWhoBoughtAndNotProduct(list: List[Client], productPart: String) : (List[Client], List[Client]) = ???
 
-  def totalWeightOfProductsContaining(list: List[Client], namePart: String): BigDecimal = {
-    list.flatMap(c => c.orders.flatMap(o => o.products.filter(p => p.name.contains(namePart)))).foldLeft(BigDecimal(0)){(s, p) => s + p.weight}
-  }
+  def totalWeightOfProductsContaining(list: List[Client], namePart: String): BigDecimal = ???
 
-  def returnClientStats(list: List[Client]): List[(String, Int, Int)] = {
-    list.map(c => {
-      (s"${c.firstName} ${c.lastName}", c.orders.length, c.orders.foldLeft(0){(s, o) => s + o.products.length})
-    })
-  }
+  def returnClientStats(list: List[Client]): List[(String, Int, Int)] = ???
 
 }
 
