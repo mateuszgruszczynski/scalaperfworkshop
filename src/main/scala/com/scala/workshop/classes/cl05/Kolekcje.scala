@@ -1,0 +1,216 @@
+package com.scala.workshop
+
+import scala.collection.mutable
+import scala.util.Random
+
+object Kolekcje extends App{
+
+  // Dwa typy kolekcji - mutable i immutable
+  // Do mutable można dodawać i odejmować elementy
+  // Immutable nie można edytowac, jedynie kopiować
+
+  val immutableList: List[Int] = List(1, 2, 3)
+  val mutableList: mutable.MutableList[Int] = mutable.MutableList(1, 2, 3)
+
+  //immutableList += 4 // brak metody do dodawania
+  mutableList += 4
+
+  println(immutableList)
+  println(mutableList)
+
+  // Trzy interesujące nas kolekcje to Set, Seq/Listy i Mapy, jest ich znacznie więcej
+  // lecz dziedziczą po wspomnianych
+
+  // Set - w skrócie są to listy bez powtórzeń
+
+  val set1 = Set("a", "b", "c")
+
+  println(set1)
+
+  val set2 = set1 + "d"
+
+  println(set2)
+
+  val set3 = set2 - "a"
+
+  println(set3)
+
+  // Dodawanie duplikatu do setu nie spowoduje duplikatu
+
+  val set4 = set3 + "d"
+
+  // Analogicznie dodawanie 2 setów pododuje pominięcie duplikatów
+
+  val set5 = set2 ++ set3
+
+  println(set5)
+
+  //--------------------------------------------------
+  // Listy lub Seq możemy definiować na kilka sposobów
+  //--------------------------------------------------
+
+  val lista1: List[String] = List("a", "b", "c", "d")
+
+  // bez podania typu kompilator zgadnie ten typ, jeśli będzie ich wiele
+  // to zastosuje Any
+
+  val lista2 = List("x", "y", "z")
+  val listaAny = List("a", "b", 2, 4)
+
+  // Listę można równiez złożyć używając notacji :: i Nil (pusta lista)
+
+  val lista3 = "a" :: "b" :: "c" :: Nil
+
+  // Pustą listę można zdefiniować jako
+
+  val emptyList = List.empty
+
+  // z użyciem podobnej notacji mozna łączyć listy
+
+  val lista4 = lista2 ::: lista3
+
+  // mozliwa jest również notacja z ++
+
+  val lista5 = lista2 ++ lista3
+
+  // a także łączyć listy z nowymi elementami
+
+  val lista6 = lista2 :+ "d"
+
+  // również w odwróconej kolejności - wtedy odwraca się też operator +: zamiast :+
+
+  val lista7 = "d" +: lista1
+
+  // listę można uznać za sumę 2 fragmentów: head i tail
+
+  val head :: tail = lista7
+
+  println(head)
+  println(tail)
+
+  // czy też rozłożyć ją na więcej fragmentów
+
+  val first :: second :: third :: rest = lista7
+
+  println(first)
+  println(second)
+  println(third)
+  println(rest)
+
+  // Sety i Seq(Listy) mają szereg przydatnych metod operujących na lambdach:
+
+  // filtrowanie
+
+  lista1.filter(s => s.length >= 2)
+
+  lista1.filterNot(s => s.length >= 2)
+
+  // wyszukiwanie
+
+  lista1.find(s => s.length >= 2)
+
+  lista1.exists(s => s.length >= 2)
+
+  // sortowanie
+
+  lista1.sorted
+
+  lista1.sortBy(s => s.length)
+
+  lista1.sortWith((s1, s2) => s1.length >= s2.length)
+
+  lista1.reverse
+
+  // "edytowanie"
+
+  lista1.distinct
+
+  lista1.drop(10)
+
+  lista1.dropWhile(s => s.length >= 2)
+
+  // łączyć z innymi listami w listy tupli
+
+  val zippedList = lista1.zip(lista2)
+
+  val zippedAllList =  lista1.zipAll(lista2, "missing", "missing")
+
+  val zipIndexList = lista1.zipWithIndex
+
+  // iterowanie
+
+  lista1.foreach(s => println(s.length))
+
+  lista1.map(s => s.length)
+
+  val intList = List(2, 5, 11)
+
+  println(intList.fold(1){
+    (a,b) => a - b
+  })
+
+  println(intList.foldLeft(1){
+    (a,b) => a - b
+  })
+
+  println(intList.foldRight(1){
+    (a,b) => a - b
+  })
+
+  println(intList.scanLeft(1)(_ - _))
+  println(intList.scanRight(1)(_ - _))
+
+  // redukowanie
+
+  println(List(1, 2, 3, 4).product)
+
+  println(List(1, 2, 3, 4).sum)
+
+  println(List(1, 2, 3, 4).reduce((x,y) => x + y))
+
+  // Listę list możemy przekształcić z użyciem flatten
+
+  val listOfLists = List(
+    List("a", "b", "c", "d"),
+    List("x", "y", "z")
+  )
+
+  println(listOfLists.flatten)
+
+  // List API posiadają również obiekt List który posiada metody do generowania list
+
+  val generatedList = List.fill(10){ Random.nextInt(100) }
+
+  val generatedList2 = List.tabulate(10){ i => i}
+
+  // ------------------------------------------------
+  // Mapy równiez możemy definiować na kilka sposobów
+  // ------------------------------------------------
+
+  val map1: Map[String, Int] = Map("one" -> 1, "two" -> 2, "three" -> 3)
+
+  val map2: Map[String, Int] = Map(("one", 1), ("two", 2), ("three", 3))
+
+  // Dodawanie do mapy
+
+  val map3 = map1 + ("four" -> 4)
+
+  val map4 = map1 + ("four" -> 4, "five" -> 5)
+
+  // Odejmowanie z mapy wymaga jedynie klucza/y
+
+  val map5 = map1 - ("first")
+
+  val map6 = map1 - ("first", "second")
+
+  // Dodawanie i odejmowanie map
+
+  val map7 = map1 ++ map2
+
+  // Odejmując mapy trzeba przekazać zestaw kluczy mapy, dostępny po wywołaniu .keys
+
+  val map8 = map5 -- map4.keys
+
+  // Mapy mogą być traktowane jak listy tupli i oferują niemal identyczne API jak zwykłe listy
+
+}
