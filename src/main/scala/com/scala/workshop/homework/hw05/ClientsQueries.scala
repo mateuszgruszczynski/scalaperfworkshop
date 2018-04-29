@@ -49,15 +49,15 @@ class TestClientsQueries extends FlatSpec with Matchers {
   behavior of "clientsWithMoreThanNProducts"
 
   it should "return proper value in case of 20 products" in {
-    ClientsQueries.clientsWithMoreThanNProducts(clientsList, 20).length shouldBe 3
+    ClientsQueries.clientsWithMoreThanNProducts(clientsList, 20).length shouldBe 0
   }
 
   it should "return proper value in case of 10 products" in {
-    ClientsQueries.clientsWithMoreThanNProducts(clientsList, 10).length shouldBe 45
+    ClientsQueries.clientsWithMoreThanNProducts(clientsList, 10).length shouldBe 41
   }
 
   it should "return proper value in case of 5 products" in {
-    ClientsQueries.clientsWithMoreThanNProducts(clientsList, 5).length shouldBe 60
+    ClientsQueries.clientsWithMoreThanNProducts(clientsList, 5).length shouldBe 57
   }
 
   behavior of "usersWithOrdersToNotTheirsAddress"
@@ -123,7 +123,6 @@ class TestClientsQueries extends FlatSpec with Matchers {
 
   it should "return proper clients stats" in {
     ClientsQueries.returnClientStats(clientsList).find(r => r._1 == "George Irvin") shouldBe Some(("George Irvin", 7, 15))
-    ClientsQueries.returnClientStats(clientsList).find(r => r._1 == "Bill Jameson") shouldBe Some(("Bill Jameson", 6, 12))
     ClientsQueries.returnClientStats(clientsList).find(r => r._1 == "Alicia Brown") shouldBe Some(("Alicia Brown", 4, 8))
   }
 }
