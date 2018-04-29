@@ -92,7 +92,7 @@ class TestClientsQueries extends FlatSpec with Matchers {
   behavior of "returnAllDistinctProductNames"
 
   it should "return proper amount" in {
-    ClientsQueries.returnAllDistinctProductNames(clientsList).length shouldBe 797
+    ClientsQueries.returnAllDistinctProductNames(clientsList).length shouldBe 108
   }
 
   behavior of "splitUsersWhoBoughtAndNotProduct"
