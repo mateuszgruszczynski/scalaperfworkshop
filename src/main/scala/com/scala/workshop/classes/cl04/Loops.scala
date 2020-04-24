@@ -44,7 +44,6 @@ object Loops extends App{
     println(s"Krok $i")
   }
 
-
   // For może iterowac jednocześnie po wielu kolekcjach,
   // będzie wówczas iterował po ich iloczynie kartezjańskim
   for(i <- 1 to 25; j <- 1 to 10){
@@ -68,5 +67,4 @@ object Loops extends App{
   }
 
   println(listaTupli)
-
 }

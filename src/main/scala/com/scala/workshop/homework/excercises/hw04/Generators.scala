@@ -1,6 +1,29 @@
-package com.scala.workshop.homework.hw04
+package com.scala.workshop.homework.excercises.hw04
 
 import org.scalatest.{FlatSpec, Matchers}
+
+/*
+Zdefiniuj metodę “commonMultiples” zwracającą listę wspólnych wielokrotności liczb podanych jako parametry nie większych jednak niż podany limit.
+
+Zdefiniuj metodę “stringSquare” która zwraca tekst zawierający kwadrat o bokach o długości podanej jako parametr, a złożonych
+z liter “x”. Wnętrze kwadratu powinno być puste (spacje). np dla boku o długości 5:
+
+xxxxx
+x   x
+x   x
+x   x
+xxxxx
+
+Zdefiniuj metodę “polishNames” która z podanych list imion i nazwisk wygeneruje listę unikatowych nazwisk wraz z tytułem Pan/Pani w formie:
+“Pan Jan Kowalski”, “Pani Janina Kowalska”
+Zadbaj o to by w przypadku nazwisk kończących się na -ski, -cki, -dzki - posiadających męską i damską formę, zawsze stosowane były w poprawnej formie
+
+Dla case klasy “Outfit” zdefiniuj metody:
+- withColor - zwracającą kopię obiektu klasy ze zmienionym kolorem
+- withSize - zwracającą kopię obiektu klasy ze zmienionym rozmiarem
+- generateSimilar - zwracającą listę kopii obiektu ze zmienionymi kolorami i/lub rozmiarami
+Obie listy podawane są jako opcje, w przypadku gdy tylko jedna lista jest podana, powinny być generowane kopie ze zmienionym jednym polem
+ */
 
 object Generators{
 
