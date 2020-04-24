@@ -1,7 +1,28 @@
-package com.scala.workshop.homework.hw04
+package com.scala.workshop.homework.excercises.hw04
 
 import org.scalatest.{FlatSpec, Matchers}
-  
+
+/*
+Dokończ klasę “TextMultiplier” która przyjmuje separator (String) jako parametr domyślnego konstruktora.
+
+W klasie zdefiniuj metodę “multiplyText” która przyjmuje tekst i ilość jego powtórzeń (String i Int) a następnie zwraca
+powtórzony konkretny raz tekst (String). Każde kolejne powtórzenie powinno być oddzielone separatorem zdefiniowanym przy
+konstrukcji obiektu klasy.
+
+Np. “ab”, 3 → “ab,ab,ab”
+
+Następnie zdefiniuj klasę “UppercaseTextMultiplier” która będzie dziedziczyć po “TextMultiplier”. Metoda “multiplyText”
+tej klasy powinna zwracać dokładnie ten sam wynik co w klasie “TextMultiplier” ale w postaci dużych liter.
+
+Np. “ab”, 3 → “AB,AB,AB”
+
+Następnie dodaj trait “Borders” który można zastosować zarówno na “TextMultiplier” jak i “UppercaseTextMultiplier”.
+Powinien on modyfikować oryginalną metodę “multiplyText” w taki sposób, że dodaje do jej wyniku "<" na początku i ">" na końcu.
+
+Np. “ab”, 3 → “<ab,ab,ab>”
+
+ */
+
 class TextMultiplier(separator: String) {
   def multiplyText(text: String, counter: Int): String = ??? // Dokończ
 }

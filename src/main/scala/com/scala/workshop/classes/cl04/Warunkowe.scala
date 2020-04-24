@@ -2,8 +2,6 @@ package com.scala.workshop.classes.cl04
 
 import java.io.Serializable
 
-//import com.scala.workshop.tmp.Pojazd
-
 object Warunkowe extends App{
 
   // If ; else if ; else jest podstawową instrukcją warunkową,

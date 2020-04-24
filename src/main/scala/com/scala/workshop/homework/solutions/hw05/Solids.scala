@@ -1,16 +1,33 @@
-package com.scala.workshop.homework.hw05
+package com.scala.workshop.homework.solutions.hw05
 
 import org.scalatest.{FlatSpec, Matchers}
+
+/*
+Klasa “RegularSolid” implementuje bryłę foremną i przyjmuje dwa parametry:
+- a - długość boku
+- fv - funkcję liczącą objętość bryły
+
+Zdefiniuj 3 klasy dziedziczące po “RegularSolid” tak by wszystkie 3 przyjmowały jedynie długość boku, a funkcja licząca
+objętość powinna być przekazana na poziomie dziedziczenia.
+
+- Tetahedron - czworobok foremny
+- Cube - sześcian foremny
+- Octahedron - ośmiościan foremny
+
+Wzory na objętość znajdziecie: http://www.megamatma.pl/uczniowie/wzory/stereometria-wzory/wielosciany
+
+Do obliczeń możecie wspomóc się biblioteką scala.math
+ */
 
 class RegularSolid(a: Double, fv: Double => Double){
   def volume = fv.apply(a)
 }
 
-case class Tetahedron(a: Double) extends RegularSolid(???, ???) // TODO: dokończ
+case class Tetahedron(a: Double) extends RegularSolid(a, a => a*a*a*math.sqrt(2)/12)
 
-case class Cube(a: Double) extends RegularSolid(???, ???) // TODO: dokończ
+case class Cube(a: Double) extends RegularSolid(a, a => a*a*a)
 
-case class Octahedron(a: Double) extends RegularSolid(???, ???) // TODO: dokończ
+case class Octahedron(a: Double) extends RegularSolid(a, a => a*a*a*math.sqrt(2)/3)
 
 class TestSolids extends FlatSpec with Matchers {
 

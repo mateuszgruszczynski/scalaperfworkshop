@@ -1,7 +1,11 @@
-package com.scala.workshop.homework.hw05
+package com.scala.workshop.homework.excercises.hw05
 
 import scala.math.BigDecimal.RoundingMode
 import scala.util.Random
+
+/*
+To tylko pomocnicze klasy z danymi i modelem dla zadania z ClientQueries.scala
+ */
 
 case class Client(
   firstName: String,

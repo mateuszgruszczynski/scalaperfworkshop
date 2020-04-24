@@ -101,6 +101,8 @@ object Kolekcje_Z_Komantarzem extends App{
   println(third)
   println(rest)
 
+
+
   // Sety i Seq(Listy) mają szereg przydatnych metod operujących na lambdach:
 
   // filtrowanie
@@ -123,7 +125,7 @@ object Kolekcje_Z_Komantarzem extends App{
 
   lista1.sortWith((s1, s2) => s1.length >= s2.length)
 
-  lista1.reverse
+  lista1.reverse // <-- nie sortuje
 
   // "edytowanie"
 

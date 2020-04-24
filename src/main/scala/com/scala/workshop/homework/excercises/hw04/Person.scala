@@ -1,6 +1,27 @@
-package com.scala.workshop.homework.hw04
+package com.scala.workshop.homework.excercises.hw04
 
 import org.scalatest.{FlatSpec, Matchers}
+
+/*
+Do klasy Person dopisz metodę “isAdult” która zwraca true lub false w zależności od tego czy osoba jest pełnoletnia, dla
+uproszczenia można przyjąć, że zawsze jest 16 kwietnia 2018, a pełnoletność uzyskuje się w dzień urodzin o północy
+! dla chętnych:  można odczytać aktualną datę za pomocą którejś z Javowych bibliotek
+
+Do klasy Student dodaj metodę “isStudentOfUniversityOrSubject” która przyjmuje jako parametry nazwę uniwersytetu i kierunek i zwraca String:
+- “Both” - jeśli oba pola się zgadzają z danymi studenta
+- “University” - jeśli jedynie uniwersytet się zgadza
+- “Subject” - jeśli tylko kierunek się zgadza
+- “None” - jeśli żaden z pól się nie zgadza
+
+Do klasy “Employee” dopisz metodę “salaryLowerEqualHigher” która przyjmuje jako parametr kwotę (Int) i zwraca tekst "Equal",
+"Lower" albo "Higher" w zależności od tego czy pensja pracownika jest równa, niższa lub wyższa od podanej kwoty
+
+Do klasy “Employee” dodaj metodę “hasManagingPosition” która zwraca true jeśli nazwa pozycji pracownika zawiera:
+- "Manager" lub "Director"
+- "Chief" i "Officer" np. Chief Technology Officer
+- skrót: "CTO", "CEO", "COO", "KAM", "CSM" lub "HRM"
+W przeciwnym wypadku metoda powinna zwracać false
+ */
 
 case class BirthDate(year: Int, month: Int, day: Int)
 
